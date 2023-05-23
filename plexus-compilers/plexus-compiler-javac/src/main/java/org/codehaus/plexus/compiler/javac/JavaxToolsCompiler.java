@@ -139,6 +139,7 @@ public class JavaxToolsCompiler extends AbstractLogEnabled implements InProcessC
                 for ( Diagnostic<? extends JavaFileObject> diagnostic : collector.getDiagnostics() )
                 {
                     CompilerMessage.Kind kind = convertKind( diagnostic );
+                    getLogger().info("Raw diagnostic: " + diagnostic);
 
                     String baseMessage;
                     try
