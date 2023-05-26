@@ -635,6 +635,10 @@ public class JavacCompiler
         {
             returnCode = CommandLineUtils.executeCommandLine( cli, out, out );
 
+            if (returnCode != 0) {
+                getLogger().info(out.getOutput());
+            }
+
             messages = parseModernStream( returnCode, new BufferedReader( new StringReader( out.getOutput() ) ) );
         }
         catch ( CommandLineException | IOException e )
